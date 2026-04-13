@@ -44,35 +44,8 @@ class View
         $isPaginaAuth = str_starts_with($nomeView, 'auth/') || str_contains($nomeView, '/auth/');
 
         if ($isPaginaAuth) {
-            // Layout auth — sem header/footer
-            echo '<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DatisLopo — Acesso</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      background: #0f0e0b;
-      color: #f0ead8;
-      font-family: "DM Sans", sans-serif;
-      font-weight: 300;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-  </style>
-</head>
-<body>';
-
+            // Layout auth — as páginas de auth já possuem HTML completo
             require $caminhoView;
-
-            echo '</body>
-</html>';
         }
         else {
             // Layout principal — com header e footer

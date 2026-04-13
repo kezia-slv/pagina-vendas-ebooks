@@ -63,14 +63,15 @@ class AuthController
             $this->session->set('usuario_email', $usuario['email_usuario']);
 
             if ($usuario['tipo_usuario'] === 'Admin') {
-                Redirect::redirecionarPara(url('backend/ebook'));
+                Redirect::redirecionarPara('/backend/ebook');
             }
             else {
-                Redirect::redirecionarPara(url(''));
+                Redirect::redirecionarPara('/vendas.html');
             }
         }
         else {
-            Redirect::redirecionarComMensagem(url('backend/login'), 'error', 'Email ou senha incorretos');
+            $_SESSION['flash_error'] = 'Email ou senha incorretos';
+            Redirect::redirecionarPara('/backend/login');
         }
     }
 
