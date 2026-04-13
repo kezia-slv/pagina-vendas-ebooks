@@ -26,12 +26,12 @@ if (str_starts_with($uri, '/backend')) {
 }
 
 // ── Front-end público (página de vendas) ou Redirecionamento ────────
-if ($uri === '/' || $uri === '/index.html' || $uri === '') {
+if ($uri === '/' || $uri === '') {
     header('Location: /backend/login');
     return;
 }
 
-$indexHtml = __DIR__ . '/vendas.html';
+$indexHtml = __DIR__ . '/index.html';
 
 if (file_exists($indexHtml)) {
     readfile($indexHtml);

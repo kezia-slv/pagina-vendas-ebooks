@@ -66,7 +66,7 @@ class AuthController
                 Redirect::redirecionarPara('/backend/ebook');
             }
             else {
-                Redirect::redirecionarPara('/vendas.html');
+                Redirect::redirecionarPara('/index.html');
             }
         }
         else {

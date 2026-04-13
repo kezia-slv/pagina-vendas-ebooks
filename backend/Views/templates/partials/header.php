@@ -570,6 +570,15 @@ $flash = \Datislopo\Ebook\Core\Flash::get();
          class="<?= str_contains($_SERVER['REQUEST_URI'], '/ebook') ? 'active' : '' ?>">
         <i class="fas fa-book"></i> Ebooks
       </a>
+      <a href="<?= url('backend/usuario') ?>"
+         class="<?= str_contains($_SERVER['REQUEST_URI'], '/usuario') ? 'active' : '' ?>">
+        <i class="fas fa-user"></i> Usuários
+      </a>
+    </li>
+    <li>
+      <a href="/index.html" target="_blank" style="margin-top: 20px; border-top: 1px solid var(--border); padding-top: 20px;">
+        <i class="fas fa-external-link-alt"></i> Ver Site
+      </a>
     </li>
   </ul>
 </aside>

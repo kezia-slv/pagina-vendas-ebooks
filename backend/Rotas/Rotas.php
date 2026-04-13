@@ -34,6 +34,7 @@ class Rotas
                 '/logout' => 'AuthController@logout',
                 '/forgot-password' => 'AuthController@forgotPassword',
                 '/redefinir-senha' => 'AuthController@resetPassword',
+                '/check-session' => 'AuthController@checkSession',
 
             ],
 
