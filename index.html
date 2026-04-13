@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DatisLopo — Ebooks Cristãos</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ══════════════ HERO ══════════════ -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-lines"></div>
+  <canvas class="hero-particles" id="heroParticles"></canvas>
+
+  <div class="hero-inner">
+
+    <!-- Conteúdo esquerdo -->
+    <div class="hero-content">
+      <span class="hero-eyebrow">✦ Ebooks Cristãos</span>
+
+      <h1>Palavras que<br><em>alimentam</em> a alma</h1>
+
+      <p>Ebooks cristãos para aprofundar sua fé, edificar sua família e viver os propósitos de Deus.</p>
+
+      <div class="hero-cta">
+        <a href="#catalogo" class="btn-primary">Explorar catálogo</a>
+        <a href="#catalogo" class="btn-ghost">Ver destaques</a>
+      </div>
+
+      <div class="hero-stats">
+        <div class="stat">
+          <div class="stat-num">🙌</div>
+          <div class="stat-lbl">Ebooks Cristãos</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">✅</div>
+          <div class="stat-lbl">Acesso imediato</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">4,9 ★</div>
+          <div class="stat-lbl">Avaliação média</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Livros flutuantes (direita) -->
+    <div class="hero-books" id="heroBooks">
+
+      <!-- Livro pequeno: fundo -->
+      <div class="hero-book book-back">
+        <img src="img/ainda_ha_perdao.jpg" alt="Ainda Há Perdão">
+        <div class="book-shine"></div>
+      </div>
+
+      <!-- Livro superior esquerdo -->
+      <div class="hero-book book-tl">
+        <img src="img/Cristo_o_nosso_norte.jpg" alt="Cristo, o Nosso Norte">
+        <div class="book-shine"></div>
+      </div>
+
+      <!-- Livro inferior direito -->
+      <div class="hero-book book-br">
+        <img src="img/nada_e_impossivel.jpg" alt="Nada é Impossível">
+        <div class="book-shine"></div>
+      </div>
+
+      <!-- LIVRO PRINCIPAL (frente, cicla automaticamente) -->
+      <div class="hero-book book-main" title="Clique para ver outro livro">
+       <img src="img/entre_o_altar_e_a_pressao.jpg" alt="Entre o Altar e a Pressão">
+        <div class="book-shine"></div>
+      </div>
+
+      <!-- Card flutuante: versículo -->
+      <div class="hero-verse">
+        <p>"A fé é a certeza daquilo que esperamos…"</p>
+        <span>Hebreus 11:1</span>
+      </div>
+
+      <!-- Card flutuante: leitores -->
+      <div class="hero-readers">
+        <div class="readers-avatars">
+          <div class="reader-av">😊</div>
+          <div class="reader-av">🙂</div>
+          <div class="reader-av">😄</div>
+        </div>
+        <div class="readers-info">
+          <span>Vários leitores</span>
+          <small>satisfeitos</small>
+        </div>
+      </div>
+
+    </div><!-- /hero-books -->
+  </div><!-- /hero-inner -->
+
+  <div class="scroll-hint">
+    <div class="scroll-line"></div>
+    Role para Baixo
+  </div>
+</section>
+
+<!-- ══════════════ SEARCH ══════════════ -->
+<section class="search-section">
+  <div class="search-wrap">
+    <span class="search-label">Encontre seu próximo Ebook</span>
+
+    <div class="search-box">
+      <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <input type="text" id="searchInput" placeholder="Título, autor ou tema…" autocomplete="off">
+      <button class="search-clear" id="clearBtn" onclick="clearSearch()">✕</button>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════ CATALOG ══════════════ -->
+<section class="catalog" id="catalogo">
+  <div class="catalog-header">
+    <h2>Nosso Catálogo</h2>
+    <span class="catalog-count" id="catalogCount">12 ebooks</span>
+  </div>
+
+  <div class="ebooks-grid" id="ebooksGrid">
+    <!-- Cards renderizados pelo JS -->
+  </div>
+</section>
+
+<!-- ══════════════ FOOTER ══════════════ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">Datis<em>Lopo</em></div>
+    <ul class="footer-links">
+      <li><a href="#">Início</a></li>
+      <li><a href="#">Catálogo</a></li>
+      <li><a href="#">Sobre</a></li>
+      <li><a href="#">Contato</a></li>
+      <li><a href="#">Política de Privacidade</a></li>
+      <li><a href="#">Termos de Uso</a></li>
+    </ul>
+    <p class="footer-copy">© 2025 LitStore. Todos os direitos reservados. Leitura que transforma.</p>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script src="js/hero-interactive.js"></script>
+</body>
+</html>
