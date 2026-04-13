@@ -1,0 +1,16 @@
+{
+    "name": "datislopo/ebook",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Datislopo\\Ebook\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "kezia.slv",
+            "email": "keziaoficialk@gmail.com"
+        }
+    ],
+    "require": {}
+}
