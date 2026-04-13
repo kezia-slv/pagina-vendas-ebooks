@@ -11,9 +11,10 @@ namespace Datislopo\Ebook\Core;
  *     │   ├── header.php
  *     │   └── footer.php
  *     ├── ebook/
- *     │   ├── listar.php
+ *     │   ├── index.php
  *     │   ├── criar.php
- *     │   └── editar.php
+ *     │   ├── editar.php
+ *     │   └── deletar.php
  *     └── auth/
  *         └── login.php
  */
@@ -40,45 +41,11 @@ class View
         // Disponibiliza as variáveis para a view
         extract($dados);
 
-        $isPaginaAuth = str_starts_with($nomeView, 'auth/');
+        $isPaginaAuth = str_starts_with($nomeView, 'auth/') || str_contains($nomeView, '/auth/');
 
         if ($isPaginaAuth) {
-            self::renderizarLayoutAuth($caminhoView);
-        } else {
-            self::renderizarLayoutPrincipal($caminhoView);
-        }
-    }
-
-    // =========================================================
-    // LAYOUTS PRIVADOS
-    // =========================================================
-
-    /**
-     * Layout principal — inclui header e footer do painel de ebooks.
-     */
-    private static function renderizarLayoutPrincipal(string $caminhoView): void
-    {
-        $header = __DIR__ . '/../Views/templates/partials/header.php';
-        $footer = __DIR__ . '/../Views/templates/partials/footer.php';
-
-        if (!file_exists($header)) {
-            throw new \Exception("Partial não encontrado: 'partials/header.php'.");
-        }
-        if (!file_exists($footer)) {
-            throw new \Exception("Partial não encontrado: 'partials/footer.php'.");
-        }
-
-        require_once $header;
-        require_once $caminhoView;
-        require_once $footer;
-    }
-
-    /**
-     * Layout de autenticação — sem header/footer, apenas HTML mínimo.
-     */
-    private static function renderizarLayoutAuth(string $caminhoView): void
-    {
-        echo '<!DOCTYPE html>
+            // Layout auth — sem header/footer
+            echo '<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
@@ -102,9 +69,26 @@ class View
 </head>
 <body>';
 
-        require_once $caminhoView;
+            require $caminhoView;
 
-        echo '</body>
+            echo '</body>
 </html>';
+        }
+        else {
+            // Layout principal — com header e footer
+            $header = __DIR__ . '/../Views/templates/partials/header.php';
+            $footer = __DIR__ . '/../Views/templates/partials/footer.php';
+
+            if (!file_exists($header)) {
+                throw new \Exception("Partial não encontrado: 'partials/header.php'.");
+            }
+            if (!file_exists($footer)) {
+                throw new \Exception("Partial não encontrado: 'partials/footer.php'.");
+            }
+
+            require $header;
+            require $caminhoView;
+            require $footer;
+        }
     }
 }

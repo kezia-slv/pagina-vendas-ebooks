@@ -46,7 +46,7 @@ if (!function_exists('view')) {
      */
     function view(string $name, array $data = []): void
     {
-        \Ovos\Ebenezer\Core\View::render($name, $data);
+        \Datislopo\Ebook\Core\View::render($name, $data);
     }
 }
 
@@ -60,7 +60,7 @@ if (!function_exists('url')) {
         $baseUrl = getenv('APP_URL') ?: (
             (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? 'https' : 'http') .
             '://' . ($_SERVER['HTTP_HOST'] ?? 'localhost')
-        );
+            );
         return rtrim($baseUrl, '/') . '/' . ltrim($path, '/');
     }
 }
@@ -72,10 +72,10 @@ if (!function_exists('base_url')) {
      */
     function base_url(string $path = ''): string
     {
-        $appUrl   = getenv('APP_URL') ?: (
+        $appUrl = getenv('APP_URL') ?: (
             (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? 'https' : 'http') .
             '://' . ($_SERVER['HTTP_HOST'] ?? 'localhost')
-        );
+            );
         $basePath = parse_url($appUrl, PHP_URL_PATH) ?? '';
         return rtrim($basePath, '/') . '/' . ltrim($path, '/');
     }
@@ -152,21 +152,21 @@ if (!function_exists('calcularTempoDecorrido')) {
             return 'Data não informada';
         }
 
-        $timestamp = is_numeric($data) ? (int) $data : strtotime($data);
+        $timestamp = is_numeric($data) ? (int)$data : strtotime($data);
         if (!$timestamp) {
-            return (string) $data;
+            return (string)$data;
         }
 
         $diff = time() - $timestamp;
 
         return match (true) {
-            $diff < 60       => 'agora mesmo',
-            $diff < 3600     => 'há ' . round($diff / 60)    . (round($diff / 60) === 1.0    ? ' minuto'  : ' minutos'),
-            $diff < 86400    => 'há ' . round($diff / 3600)  . (round($diff / 3600) === 1.0  ? ' hora'    : ' horas'),
-            $diff < 2592000  => 'há ' . round($diff / 86400) . (round($diff / 86400) === 1.0 ? ' dia'     : ' dias'),
-            $diff < 31536000 => 'há ' . round($diff / 2592000) . (round($diff / 2592000) === 1.0 ? ' mês' : ' meses'),
-            default          => date('d/m/Y', $timestamp),
-        };
+                $diff < 60 => 'agora mesmo',
+                $diff < 3600 => 'há ' . round($diff / 60) . (round($diff / 60) === 1.0 ? ' minuto' : ' minutos'),
+                $diff < 86400 => 'há ' . round($diff / 3600) . (round($diff / 3600) === 1.0 ? ' hora' : ' horas'),
+                $diff < 2592000 => 'há ' . round($diff / 86400) . (round($diff / 86400) === 1.0 ? ' dia' : ' dias'),
+                $diff < 31536000 => 'há ' . round($diff / 2592000) . (round($diff / 2592000) === 1.0 ? ' mês' : ' meses'),
+                default => date('d/m/Y', $timestamp),
+            };
     }
 }
 
@@ -181,7 +181,7 @@ if (!function_exists('e')) {
      */
     function e(mixed $value): string
     {
-        return htmlspecialchars((string) ($value ?? ''), ENT_QUOTES, 'UTF-8');
+        return htmlspecialchars((string)($value ?? ''), ENT_QUOTES, 'UTF-8');
     }
 }
 
@@ -190,7 +190,7 @@ if (!function_exists('dd')) {
      * Dump and Die — exibe variáveis formatadas e encerra a execução.
      * Apenas para uso em desenvolvimento.
      */
-    function dd(mixed ...$vars): never
+    function dd(mixed...$vars): never
     {
         foreach ($vars as $var) {
             echo '<pre style="background:#1a1916;color:#e8a838;padding:16px;border-radius:8px;font-size:13px;margin:8px 0;">';

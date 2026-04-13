@@ -25,8 +25,13 @@ if (str_starts_with($uri, '/backend')) {
     return;
 }
 
-// ── Front-end público (página de vendas) ──────────────────
-$indexHtml = __DIR__ . '/index.html';
+// ── Front-end público (página de vendas) ou Redirecionamento ────────
+if ($uri === '/' || $uri === '/index.html' || $uri === '') {
+    header('Location: /backend/login');
+    return;
+}
+
+$indexHtml = __DIR__ . '/vendas.html';
 
 if (file_exists($indexHtml)) {
     readfile($indexHtml);

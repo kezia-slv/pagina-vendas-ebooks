@@ -5,9 +5,9 @@ namespace Datislopo\Ebook;
 // =========================================================
 // CONFIGURAÇÃO DE ERROS
 // =========================================================
-ini_set('display_errors', 0);
+ini_set('display_errors', 1);
 ini_set('error_log', __DIR__ . '/php_error.log');
-error_reporting(E_ALL & ~E_DEPRECATED & ~E_STRICT);
+error_reporting(E_ALL);
 
 // =========================================================
 // SESSÃO
@@ -52,7 +52,7 @@ $router->setNamespace('Datislopo\Ebook\Controllers');
 foreach (Rotas::get() as $metodoHttp => $rotas) {
     foreach ($rotas as $uri => $acao) {
         $metodo = strtolower($metodoHttp);
-        $router->{$metodo}($uri, $acao);
+        $router->{ $metodo}($uri, $acao);
     }
 }
 
@@ -62,9 +62,9 @@ foreach (Rotas::get() as $metodoHttp => $rotas) {
 $router->set404(function () {
     http_response_code(404);
     echo json_encode([
-        'sucesso'  => false,
-        'mensagem' => 'Rota não encontrada.',
-        'uri'      => $_SERVER['REQUEST_URI'],
+    'sucesso' => false,
+    'mensagem' => 'Rota não encontrada.',
+    'uri' => $_SERVER['REQUEST_URI'],
     ], JSON_UNESCAPED_UNICODE);
 });
 
@@ -73,12 +73,13 @@ $router->set404(function () {
 // =========================================================
 try {
     $router->run();
-} catch (\Throwable $e) {
+}
+catch (\Throwable $e) {
     http_response_code(500);
     error_log('[DatisLopo] Erro fatal: ' . $e->getMessage() . ' em ' . $e->getFile() . ':' . $e->getLine());
 
     echo json_encode([
-        'sucesso'  => false,
+        'sucesso' => false,
         'mensagem' => 'Erro interno no servidor.',
         'detalhes' => $e->getMessage(),
     ], JSON_UNESCAPED_UNICODE);

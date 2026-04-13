@@ -1,0 +1,26 @@
+[13-Apr-2026 14:22:39 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "Bramus\Router\Router" not found in C:\Users\Kezia\Music\pagina-vendas-ebooks\backend\index.php:36
+Stack trace:
+#0 {main}
+  thrown in C:\Users\Kezia\Music\pagina-vendas-ebooks\backend\index.php on line 36
+[13-Apr-2026 14:22:47 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "Bramus\Router\Router" not found in C:\Users\Kezia\Music\pagina-vendas-ebooks\backend\index.php:36
+Stack trace:
+#0 {main}
+  thrown in C:\Users\Kezia\Music\pagina-vendas-ebooks\backend\index.php on line 36
+[13-Apr-2026 14:24:15 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "Bramus\Router\Router" not found in C:\Users\Kezia\Music\pagina-vendas-ebooks\backend\index.php:36
+Stack trace:
+#0 {main}
+  thrown in C:\Users\Kezia\Music\pagina-vendas-ebooks\backend\index.php on line 36
+[13-Apr-2026 14:24:29 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "Bramus\Router\Router" not found in C:\Users\Kezia\Music\pagina-vendas-ebooks\backend\index.php:36
+Stack trace:
+#0 {main}
+  thrown in C:\Users\Kezia\Music\pagina-vendas-ebooks\backend\index.php on line 36
+[13-Apr-2026 14:24:47 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "Bramus\Router\Router" not found in C:\Users\Kezia\Music\pagina-vendas-ebooks\backend\index.php:36
+Stack trace:
+#0 {main}
+  thrown in C:\Users\Kezia\Music\pagina-vendas-ebooks\backend\index.php on line 36
+[13-Apr-2026 14:25:25 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "Bramus\Router\Router" not found in C:\Users\Kezia\Music\pagina-vendas-ebooks\backend\index.php:36
+Stack trace:
+#0 {main}
+  thrown in C:\Users\Kezia\Music\pagina-vendas-ebooks\backend\index.php on line 36
+[13-Apr-2026 14:28:09 Europe/Berlin] [DatisLopo] Erro fatal: Class "Datislopo\Ebook\Models\Ebook" not found em C:\Users\Kezia\Music\pagina-vendas-ebooks\backend\Controller\EbookController.php:24
+[13-Apr-2026 14:41:04 Europe/Berlin] [DatisLopo] Erro fatal: Datislopo\Ebook\Controllers\EbookController::buscarPorId(): Argument #1 ($id) must be of type int, string given em C:\Users\Kezia\Music\pagina-vendas-ebooks\backend\Controller\EbookController.php:325

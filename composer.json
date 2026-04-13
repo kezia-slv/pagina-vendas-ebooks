@@ -3,8 +3,16 @@
     "type": "project",
     "autoload": {
         "psr-4": {
-            "Datislopo\\Ebook\\": "src/"
-        }
+            "Datislopo\\Ebook\\": "src/",
+            "Datislopo\\Ebook\\Controllers\\": "backend/Controller/",
+            "Datislopo\\Ebook\\Models\\": "backend/Model/",
+            "Datislopo\\Ebook\\Core\\": "backend/Core/",
+            "Datislopo\\Ebook\\Database\\": "backend/Database/",
+            "Datislopo\\Ebook\\Rotas\\": "backend/Rotas/"
+        },
+        "files": [
+            "backend/Core/helpers.php"
+        ]
     },
     "authors": [
         {
@@ -12,5 +20,7 @@
             "email": "keziaoficialk@gmail.com"
         }
     ],
-    "require": {}
+    "require": {
+        "bramus/router": "^1.6"
+    }
 }
