@@ -12,10 +12,14 @@ document.addEventListener('DOMContentLoaded', () => {
         // Usuário logado
         const user = data.user;
         const initial = user.name.charAt(0).toUpperCase();
+        const nameTag = user.role === 'Admin' 
+          ? `<a href="/backend/ebook" class="auth-name" style="text-decoration: none; cursor: pointer; transition: color 0.2s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text)'" title="Ir para o Dashboard">Olá, ${user.name.split(' ')[0]}</a>`
+          : `<span class="auth-name">Olá, ${user.name.split(' ')[0]}</span>`;
+
         authMenu.innerHTML = `
           <div class="auth-user-info">
             <div class="auth-avatar" title="${user.role}">${initial}</div>
-            <span class="auth-name">Olá, ${user.name.split(' ')[0]}</span>
+            ${nameTag}
           </div>
           <button id="btnAuthLogout" class="auth-btn" style="color: var(--danger); border: none; background: none; cursor: pointer;" title="Sair">
             <i class="fas fa-sign-out-alt"></i> Sair

@@ -32,7 +32,7 @@
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background: var(--gold);
+  background: var(--amber);
   color: #0f0e0b;
   display: flex;
   align-items: center;
@@ -60,18 +60,18 @@
 }
 
 .auth-btn:hover {
-  color: var(--gold);
+  color: var(--amber);
 }
 
 .auth-btn.primary {
-  background: linear-gradient(135deg, var(--gold), var(--gold-dim));
+  background: linear-gradient(135deg, var(--amber), var(--amber-dim));
   color: #0f0e0b;
   padding: 6px 16px;
   border-radius: 20px;
 }
 
 .auth-btn.primary:hover {
-  background: linear-gradient(135deg, var(--gold-light), var(--gold));
+  background: linear-gradient(135deg, var(--amber), var(--amber));
   color: #0f0e0b;
   transform: translateY(-1px);
 }
@@ -139,7 +139,7 @@
   width: 64px;
   height: 64px;
   background: rgba(232, 168, 56, 0.1);
-  color: var(--gold);
+  color: var(--amber);
   border-radius: 50%;
   display: flex;
   align-items: center;
