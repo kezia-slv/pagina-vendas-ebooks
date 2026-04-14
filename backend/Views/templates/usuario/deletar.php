@@ -5,7 +5,7 @@
  */
 ?>
 
-<div class="panel" style="max-width:560px;">
+<div class="panel" style="max-width:560px; margin: 0 auto;">
   <div class="panel-header">
     <h2>
       <i class="fas fa-exclamation-triangle" style="color:var(--danger);margin-right:8px;"></i> Desativar Usuário

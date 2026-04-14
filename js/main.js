@@ -2,6 +2,8 @@
 
 let EBOOKS = []; // Será populado pela API
 let searchQuery = '';
+let currentPage = 1;
+const itemsPerPage = 8;
 
 function renderCards(list) {
   const grid = document.getElementById('ebooksGrid');
@@ -23,8 +25,8 @@ function renderCards(list) {
 
   grid.innerHTML = list.map((b, i) => `
     <div class="ebook-card" style="animation-delay:${i * 0.05}s">
-      <div class="ebook-cover" style="padding: 0; background-color: var(--bg-card); display: flex; align-items: center; justify-content: center; overflow: hidden;">
-        <img src="${b.img_ebook}" alt="${b.nome_ebook}" style="width: 100%; height: 100%; object-fit: cover;">
+      <div class="ebook-cover" style="padding: 24px; padding-bottom: 16px; background-color: var(--surface); display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative;">
+        <img src="${b.img_ebook}" alt="${b.nome_ebook}" style="width: 100%; height: 100%; object-fit: contain; border-radius: 4px; box-shadow: 0 6px 20px rgba(0,0,0,0.6);">
         
         ${b.selo_ebook ? `<span class="ebook-badge" style="z-index: 2;">${b.selo_ebook}</span>` : ''}
         
@@ -55,8 +57,50 @@ function applyFilters() {
       (b.nome_ebook && b.nome_ebook.toLowerCase().includes(q)) ||
       (b.autor_ebook && b.autor_ebook.toLowerCase().includes(q))
     );
+    // Em caso de busca, volta para a pagina 1
+    currentPage = 1;
   }
-  renderCards(result);
+  
+  // Paginação
+  const totalItems = result.length;
+  const totalPages = Math.ceil(totalItems / itemsPerPage) || 1;
+  if (currentPage > totalPages) currentPage = totalPages;
+  
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const paginatedResult = result.slice(startIndex, startIndex + itemsPerPage);
+  
+  renderCards(paginatedResult);
+  renderPagination(totalPages);
+  
+  // Atualizar contador com total geral
+  const count = document.getElementById('catalogCount');
+  if (count) count.innerHTML = totalItems + (totalItems === 1 ? ' ebook' : ' ebooks');
+}
+
+function renderPagination(totalPages) {
+  const container = document.getElementById('catalogPagination');
+  if (!container) return;
+  
+  if (totalPages <= 1) {
+    container.innerHTML = '';
+    return;
+  }
+
+  let html = `<button class="page-btn" onclick="changePage(${currentPage - 1})" ${currentPage === 1 ? 'disabled' : ''}>&laquo;</button>`;
+  
+  for (let i = 1; i <= totalPages; i++) {
+    html += `<button class="page-btn ${i === currentPage ? 'active' : ''}" onclick="changePage(${i})">${i}</button>`;
+  }
+  
+  html += `<button class="page-btn" onclick="changePage(${currentPage + 1})" ${currentPage === totalPages ? 'disabled' : ''}>&raquo;</button>`;
+  
+  container.innerHTML = html;
+}
+
+function changePage(page) {
+  currentPage = page;
+  applyFilters();
+  document.getElementById('catalogo').scrollIntoView({ behavior: 'smooth' });
 }
 
 function clearSearch() {
@@ -133,14 +177,14 @@ async function carregarEbooks() {
     
     if (json.sucesso && json.dados) {
       EBOOKS = json.dados;
-      renderCards(EBOOKS);
+      applyFilters();
     } else {
       console.error('Falha na resposta da API:', json.mensagem);
-      renderCards([]);
+      applyFilters();
     }
   } catch (err) {
     console.error('Erro ao buscar ebooks da API:', err);
-    renderCards([]);
+    applyFilters();
   }
 }
 

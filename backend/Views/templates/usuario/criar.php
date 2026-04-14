@@ -5,7 +5,7 @@
  */
 ?>
 
-<div class="panel" style="max-width:640px;">
+<div class="panel" style="max-width:640px; margin: 0 auto;">
   <div class="panel-header">
     <h2><i class="fas fa-user-plus" style="color:var(--gold);margin-right:8px;"></i> Novo Usuário</h2>
     <a href="<?= url('backend/usuario') ?>" class="btn btn-outline btn-sm">

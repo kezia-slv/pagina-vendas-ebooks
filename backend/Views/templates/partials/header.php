@@ -576,8 +576,8 @@ $flash = \Datislopo\Ebook\Core\Flash::get();
       </a>
     </li>
     <li>
-      <a href="/index.html" target="_blank" style="margin-top: 20px; border-top: 1px solid var(--border); padding-top: 20px;">
-        <i class="fas fa-external-link-alt"></i> Ver Site
+      <a href="/index.html" style="margin-top: 20px; border-top: 1px solid var(--border); padding-top: 20px;">
+        <i class="fas fa-globe"></i> Ver Site
       </a>
     </li>
   </ul>

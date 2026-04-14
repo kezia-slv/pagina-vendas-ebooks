@@ -23,10 +23,10 @@ class Rotas
 
                 // ── Usuários ──────────────────────────────────────────
                 '/usuario' => 'UsuarioController@index',
-                '/usuario/{pagina}' => 'UsuarioController@index',
                 '/usuario/criar' => 'UsuarioController@viewCriarUsuario',
                 '/usuario/editar/{id}' => 'UsuarioController@viewEditarUsuario',
                 '/usuario/deletar/{id}' => 'UsuarioController@viewDeletarUsuario',
+                '/usuario/{pagina}' => 'UsuarioController@index',
 
                 // ── Auth ──────────────────────────────────────────────
                 '/login' => 'AuthController@login',

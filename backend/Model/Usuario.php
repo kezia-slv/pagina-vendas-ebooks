@@ -26,7 +26,7 @@ class Usuario
 
     public function buscarUsuarios(): array
     {
-        $sql  = "SELECT * FROM tbl_usuario WHERE excluido_em IS NULL ORDER BY id_usuario DESC";
+        $sql  = "SELECT * FROM tbl_usuario ORDER BY id_usuario DESC";
         $stmt = $this->db->prepare($sql);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -52,14 +52,13 @@ class Usuario
 
     public function paginacao(int $pagina = 1, int $por_pagina = 10): array
     {
-        $totalStmt = $this->db->prepare("SELECT COUNT(*) FROM tbl_usuario WHERE excluido_em IS NULL");
+        $totalStmt = $this->db->prepare("SELECT COUNT(*) FROM tbl_usuario");
         $totalStmt->execute();
         $total = (int) $totalStmt->fetchColumn();
 
         $offset = ($pagina - 1) * $por_pagina;
 
         $sql  = "SELECT * FROM tbl_usuario
-                 WHERE excluido_em IS NULL
                  ORDER BY id_usuario DESC
                  LIMIT :limit OFFSET :offset";
 

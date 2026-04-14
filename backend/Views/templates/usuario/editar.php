@@ -5,7 +5,7 @@
  */
 ?>
 
-<div class="panel" style="max-width:640px;">
+<div class="panel" style="max-width:640px; margin: 0 auto;">
   <div class="panel-header">
     <h2>
       <i class="fas fa-user-pen" style="color:var(--gold);margin-right:8px;"></i> Editar Usuário
