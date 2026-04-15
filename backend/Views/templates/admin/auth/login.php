@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
@@ -409,6 +409,10 @@ $initial_mode = 'login';
                 Entrar no painel
             </button>
 
+            <div style="text-align: center; margin-top: 18px;">
+                <a href="/index.html" style="font-size: .82rem; color: var(--txt3); font-weight: 500; text-decoration: none; transition: color .2s ease;" onmouseover="this.style.color='var(--brand)'" onmouseout="this.style.color='var(--txt3)'">Continue sem entrar &rarr;</a>
+            </div>
+
         </form>
     </div>
 
@@ -471,6 +475,10 @@ $initial_mode = 'login';
                 <i class="fas fa-user-plus"></i>
                 Criar minha conta
             </button>
+
+            <div style="text-align: center; margin-top: 18px;">
+                <a href="/index.html" style="font-size: .82rem; color: var(--txt3); font-weight: 500; text-decoration: none; transition: color .2s ease;" onmouseover="this.style.color='var(--brand)'" onmouseout="this.style.color='var(--txt3)'">Continue sem entrar &rarr;</a>
+            </div>
 
         </form>
     </div>

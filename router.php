@@ -25,9 +25,9 @@ if (str_starts_with($uri, '/backend')) {
     return;
 }
 
-// ── Front-end público (página de vendas) ou Redirecionamento ────────
+// ── Front-end público (página de vendas) ────────────────────
 if ($uri === '/' || $uri === '') {
-    header('Location: /backend/login');
+    readfile(__DIR__ . '/index.html');
     return;
 }
 
