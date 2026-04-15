@@ -3,4 +3,4 @@ Allow: /
 Disallow: /backend/
 
 # Substitua pelo seu domínio real 
-Sitemap: https://seusite.com.br/sitemap.xml
+Sitemap: https://datislopo.infinityfreeapp.com/sitemap.xml
