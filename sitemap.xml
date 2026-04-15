@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Página principal do catálogo -->
+  <url>
+    <loc>https://datislopo.infinityfreeapp.com/</loc>
+    <lastmod>2026-04-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <!-- Página do catálogo separada, caso você passe a usar links no topo do site para acessá-la diferentemente -->
+  <url>
+    <loc>https://datislopo.infinityfreeapp.com/index.html</loc>
+    <lastmod>2026-04-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+</urlset>
