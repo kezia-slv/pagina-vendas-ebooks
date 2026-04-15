@@ -20,10 +20,10 @@ class Config
             'database' => array(
                 'driver' => 'mysql',
                 'mysql' => array(
-                 'host' => '127.0.0.1',
-                'db_name' => 'ebooks',
-                'username' => 'root',
-                'password' => '',
+                 'host' => 'sql211.infinityfree.com',
+                'db_name' => 'if0_41664807_XXX',
+                'username' => 'if0_41664807',
+                'password' => 'ks200710',
                 'charset' => 'utf8',
                 'port' =>  '3306',
                 ),

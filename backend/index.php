@@ -43,6 +43,12 @@ if (str_contains($_SERVER['REQUEST_URI'], $basePath . '/index.php')) {
     $basePath .= '/index.php';
 }
 
+// Garantia: em hospedagem compartilhada, o basePath deve ser /backend
+// Se dirname() retornar algo inesperado (ex: '/' ou '\'), forçar /backend
+if ($basePath === '/' || $basePath === '\\' || $basePath === '.') {
+    $basePath = '/backend';
+}
+
 $router->setBasePath($basePath);
 $router->setNamespace('Datislopo\Ebook\Controllers');
 

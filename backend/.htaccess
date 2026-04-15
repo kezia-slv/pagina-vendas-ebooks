@@ -1,0 +1,16 @@
+RewriteEngine On
+
+# Se o arquivo existe (ex: uploads/capas/imagem.jpg), servir direto
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule ^ - [L]
+
+# Tudo o resto vai para o index.php do backend
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php [L,QSA]
+
+# Bloquear acesso ao log de erros
+<FilesMatch "^php_error\.log$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>

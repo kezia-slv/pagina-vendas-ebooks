@@ -1,0 +1,30 @@
+RewriteEngine On
+
+# ══════════════════════════════════════════════
+# SEGURANÇA — Bloquear acesso a arquivos sensíveis
+# ══════════════════════════════════════════════
+
+# Bloquear acesso a .env, .git, composer, logs, check_db
+<FilesMatch "\.(env|log|lock)$|^(composer\.(json|lock)|check_db\.php|router\.php)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Bloquear acesso à pasta vendor
+RewriteRule ^vendor(/.*)?$ - [F,L]
+
+# ══════════════════════════════════════════════
+# ROTEAMENTO
+# ══════════════════════════════════════════════
+
+# Se o arquivo ou diretório já existe no disco, servir diretamente
+# (CSS, JS, imagens, uploads, index.html, etc.)
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Rotas do backend (/backend/*) → backend/index.php
+RewriteRule ^backend(/.*)?$ backend/index.php [L,QSA]
+
+# Tudo o resto → index.php (redireciona para /backend/login)
+RewriteRule ^(.*)$ index.php [L,QSA]
