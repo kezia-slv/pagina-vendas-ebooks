@@ -324,33 +324,55 @@
     .btn-switch.to-log:hover i { transform: translateX(-4px); }
 
     /* ══════════════════════════════════════════════
-       MOBILE  ─ empilha verticalmente
+       MOBILE  ─ empilha verticalmente e força scroll nativo
     ══════════════════════════════════════════════ */
     @media (max-width: 680px) {
+        html, body {
+            height: auto !important;
+            min-height: 100vh;
+        }
+        body {
+            display: block !important;
+            overflow: visible !important;
+            padding: 24px 16px;
+        }
         .auth-card {
-            width: 96vw; height: auto; min-height: 0;
+            width: 100% !important;
+            height: auto !important; 
+            min-height: 0;
             border-radius: 18px;
-            /* Mobile: layout estático, sem deslizamento */
+            margin: 0 auto;
+            display: flex !important;
+            flex-direction: column;
         }
         .fp {
-            position: static; width: 100%;
-            padding: 36px 26px 32px;
+            position: static !important; 
+            width: 100% !important;
+            height: auto !important;
+            padding: 36px 20px 32px !important;
         }
-        .fp-register { display: none; }
         .brand-panel {
-            position: static; width: 100%;
+            position: static !important; 
+            width: 100% !important;
+            height: auto !important;
             transform: none !important;
             transition: none !important;
-            padding: 32px 28px;
+            padding: 32px 20px !important;
         }
-        .bc.hidden { display: none; }
-        .bc.active { position: static; padding: 0; }
-        .brand-egg { display: none; }
-        .auth-card { display: flex; flex-direction: column; }
-        .mode-login  .auth-card > .fp-login    { order: 1; display: flex; }
-        .mode-login  .auth-card > .brand-panel { order: 2; }
-        .mode-register .auth-card > .fp-register { order: 2; display: flex; }
-        .mode-register .auth-card > .brand-panel { order: 1; }
+        
+        .bc.hidden { display: none !important; }
+        .bc.active { position: static !important; padding: 0 !important; }
+        .brand-egg { display: none !important; }
+        
+        /* ── MODO LOGIN: formulário no topo, convite embaixo ── */
+        .mode-login .fp-login    { order: 1; display: flex !important; }
+        .mode-login .brand-panel { order: 2; display: flex !important; }
+        .mode-login .fp-register { display: none !important; }
+
+        /* ── MODO REGISTRO: formulário no topo, convite embaixo ── */
+        .mode-register .fp-register { order: 1; display: flex !important; }
+        .mode-register .brand-panel { order: 2; display: flex !important; }
+        .mode-register .fp-login    { display: none !important; }
     }
     </style>
 </head>
