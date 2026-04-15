@@ -21,7 +21,7 @@ class Config
                 'driver' => 'mysql',
                 'mysql' => array(
                  'host' => 'sql211.infinityfree.com',
-                'db_name' => 'if0_41664807_XXX',
+                'db_name' => 'if0_41664807_db_datislopo',
                 'username' => 'if0_41664807',
                 'password' => 'ks200710',
                 'charset' => 'utf8',
